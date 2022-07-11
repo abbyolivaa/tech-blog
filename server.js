@@ -1,21 +1,22 @@
-const express = require('express');
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
 const path = require('path');
-
-const helpers = require('./utils/helpers');
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({ helpers });
-
+const express = require('express');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+require('dotenv').config();
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+//Set up custom helpers
+const hbs = exphbs.create({ helpers });
 const sess = {
-    secret: 'secretagent',
-    cookie: { maxAge: 36000 },
+    secret: 'ALotOfCopyAndPaste',
+    cookie: {},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -24,13 +25,17 @@ const sess = {
 };
 
 app.use(session(sess));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+//Express.js will use handlebars template engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(routes);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+  app.use(routes);
+
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
 });
