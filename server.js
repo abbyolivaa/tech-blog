@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 //Set up custom helpers
 const hbs = exphbs.create({ helpers });
 const sess = {
-    secret: 'ALotOfCopyAndPaste',
+    secret: 'SecretAgent',
     cookie: {},
     resave: false,
     saveUninitialized: true,
