@@ -1,13 +1,13 @@
 :root {
-    --primary: #ccceda;
-    --secondary: #d5d8e9;
-    --tertiary: #787985;
-    --light-dark: #827fa0;
-    --dark: #171c30;
+    --primary: #ccdad1;
+    --secondary: #dce9d5;
+    --tertiary: #788585;
+    --light-dark: #a1a0a1;
+    --dark: #201110;
     --border-radius: .3rem;
 }
- 
-*{
+
+* {
     box-sizing: border-box;
 }
 
@@ -35,12 +35,12 @@ h6 {
 .link-color {
     color: var(--tertiary);
     padding: 10px;
-    margin: 10px;
+    margin: 10px
 }
 
 main {
     margin: 20px auto;
-    width: 95%
+    width: 94%;
 }
 
 .wrapper {
@@ -77,13 +77,6 @@ p {
     box-shadow: 2px 2px var(--dark);
 }
 
-.btn-back:hover {
-    color: var(--primary);
-    background-color: var(--tertiary);
-    transform: translate(0, 0);
-    box-shadow: 2px 2px var(--dark);
-}
-
 .btn-inline {
     display: inline;
 }
@@ -102,6 +95,13 @@ p {
     padding: 15px;
     text-decoration: none;
     font-size: 1.2rem;
+}
+
+.btn-back:hover {
+    color: var(--primary);
+    background-color: var(--tertiary);
+    transform: translate(0, 0);
+    box-shadow: 2px 2px var(--dark);
 }
 
 .hero {
@@ -204,15 +204,15 @@ footer {
     font-size: 110%;
 }
 
-.form-label {
-    font-size: 1.1rem;
-    margin: 0 0 0 5px;
-}
-
 .form-label,
 .form-input,
 .form-textarea {
     display: block;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    margin: 0 0 0 5px;
 }
 
 .form-input {
@@ -370,6 +370,7 @@ footer {
         flex: 0 0 100%;
     }
 }
+/* col-md */
 
 @media screen and (min-width: 768px) {
     .col-md-1 {
@@ -489,4 +490,3 @@ footer {
         flex: 0 0 100%;
     }
 }
-
