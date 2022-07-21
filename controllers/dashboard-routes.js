@@ -73,7 +73,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-})
+});
+
 router.get('/new', (req, res) => {
     res.render('new-post');
 });
